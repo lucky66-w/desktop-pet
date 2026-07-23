@@ -1,0 +1,1 @@
+const { contextBridge, ipcRenderer } = require('electron');\n\ncontextBridge.exposeInMainWorld('electronAPI', {\n  closeApp: () => ipcRenderer.send('app-close'),\n  minimizeApp: () => ipcRenderer.send('app-minimize'),\n  setAlwaysOnTop: (stay) => ipcRenderer.send('window-stay-on-top', stay),\n});\n
